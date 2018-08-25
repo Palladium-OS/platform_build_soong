@@ -165,18 +165,23 @@ var BannerVars = []string{
 	"PDK_FUSION_PLATFORM_ZIP",
 	"PRODUCT_SOONG_NAMESPACES",
 	"WITH_GMS",
+	"TARGET_GCC_VERSION",
 }
 
 func Banner(make_vars map[string]string) string {
 	b := &bytes.Buffer{}
 
-	fmt.Fprintln(b, "============================================")
+	fmt.Fprintln(b, "===========================================================")
+	fmt.Fprintln(b, "                                                           ")
+	fmt.Fprintln(b, "        Welcome to Palladium OS Build Environment          ")
+	fmt.Fprintln(b, "                                                           ")  
+	fmt.Fprintln(b, "===========================================================")
 	for _, name := range BannerVars {
 		if make_vars[name] != "" {
 			fmt.Fprintf(b, "%s=%s\n", name, make_vars[name])
 		}
 	}
-	fmt.Fprint(b, "============================================")
+	fmt.Fprint(b, "=============================================================")
 
 	return b.String()
 }
